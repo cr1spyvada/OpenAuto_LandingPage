@@ -21,7 +21,7 @@ const Header = () => {
           <Image src="/mail.svg" alt="Vercel Logo" width={22} height={18} />
           service@openauto.ca
         </div>
-        <div className="border-2 border-gray-400 rounded-full p-2 px-6">
+        <div className="border-2 border-gray-400 font-medium rounded-full p-2 px-6">
           Download the mobile app
         </div>
       </div>
