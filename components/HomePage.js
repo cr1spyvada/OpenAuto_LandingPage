@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const HomePage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const postData = async (e) => {
+    e.preventDefault();
+    const response = await fetch("api/user", {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        headers: {
+          "Content-Type": "application-json",
+        },
+      }),
+    });
+    const data = await response.json();
+  };
+
   return (
     <div className="h-[90%] flex flex-col lg:flex-row gap-y-4">
       {/* first col */}
@@ -16,16 +34,25 @@ const HomePage = () => {
             you deal with unexpected repairs worry-free.
           </div>
         </div>
-        <form className="w-full lg:w-3/5 space-y-2 lg:space-y-4">
+        <form
+          onSubmit={postData}
+          className="w-full lg:w-3/5 space-y-2 lg:space-y-4"
+        >
           <input
+            required
             type="text"
-            className="border border-gray-500 bg-transparent p-2 px-4 w-full rounded-full"
+            className="border  border-gray-500 bg-transparent p-2 px-4 w-full rounded-full"
             placeholder="Enter Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
-            type="text"
+            required
+            type="email"
             className="border border-gray-500 bg-transparent p-2 px-4 w-full rounded-full"
             placeholder="Enter Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <button className="border border-gray-500 font-medium p-2 w-full rounded-full text-center hover:bg-purple-500 hover:border-purple-500 hover:text-white">
             Submit
