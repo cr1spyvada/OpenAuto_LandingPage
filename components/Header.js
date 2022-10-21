@@ -4,7 +4,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div className="flex">
-      <div className="flex-[1] text-2xl font-semibold items-center">
+      <div className="flex-[1] text-2xl lg:text-4xl font-semibold items-center">
         OPENAUTO
       </div>
       <div className="flex-[1] hidden text-lg md:flex justify-between items-center">
