@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const HomePage = () => {
   return (
-    <div className="h-[90%] flex flex-col lg:flex-row">
+    <div className="h-[90%] flex flex-col lg:flex-row gap-y-4">
       {/* first col */}
-      <div className="h-[50%] lg:h-full lg:gap-y-10 lg:flex-[2] flex flex-col justify-center">
+      <div className="h-[50%] lg:h-full lg:gap-y-10 gap-y-6 lg:flex-[2] flex flex-col justify-center">
         {/* text*/}
-        <div className="lg:flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4">
           <div className="text-center text-gray-300 lg:text-left text-2xl lg:text-5xl font-bold">
             Vehicle Maintenance From The Comfort of Your Home
           </div>
@@ -32,7 +32,7 @@ const HomePage = () => {
           </button>
         </form>
       </div>
-      <div className="h-[50%] lg:flex-[3] flex flex-col lg:h-full justify-between">
+      <div className="h-[50%] lg:flex-[3] flex flex-col gap-y-4 lg:h-full justify-between">
         <div className="h-[75%] lg:h-[90%] items-center">
           <img
             src="/Pickup_Illustration.png"

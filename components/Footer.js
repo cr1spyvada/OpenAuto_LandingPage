@@ -9,17 +9,12 @@ const Footer = () => {
           OPENAUTO
         </div>
         <div className="flex lg:flex-[1] justify-between font-medium">
-          <div className="flex items-center">
-            <Image
-              src="/phoneicon.svg"
-              alt="Vercel Logo"
-              width={30}
-              height={18}
-            />
+          <div className="flex items-center gap-x-2">
+            <Image src="/phone.png" alt="Vercel Logo" width={16} height={16} />
             +769 586 4558
           </div>
-          <div className="flex items-center">
-            <Image src="/mail.svg" alt="Vercel Logo" width={30} height={18} />
+          <div className="flex items-center gap-x-2">
+            <Image src="/mail.png" alt="Vercel Logo" width={16} height={16} />
             service@openauto.ca
           </div>
         </div>
