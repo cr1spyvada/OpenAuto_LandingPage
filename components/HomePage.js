@@ -4,7 +4,8 @@ import Image from "next/image";
 const HomePage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
+  const [response, setResponse] = useState("");
+  const [responseStyle, setResponseStyle] = useState("");
   const postData = async (e) => {
     e.preventDefault();
     const response = await fetch("api/user", {
@@ -17,7 +18,20 @@ const HomePage = () => {
         },
       }),
     });
-    const data = await response.json();
+    const data = await response;
+    if (data.status === 200) {
+      const msg = data.json();
+      // alert("sucessfully added message to data");
+      setResponse("Uploaded");
+      setResponseStyle("text-green-300");
+      setEmail("");
+      setName("");
+    } else {
+      setResponseStyle("text-red-300");
+      setResponse("Failed");
+      setEmail("");
+      setName("");
+    }
   };
 
   return (
@@ -34,6 +48,7 @@ const HomePage = () => {
             you deal with unexpected repairs worry-free.
           </div>
         </div>
+        <div className={responseStyle}>{response}</div>
         <form
           onSubmit={postData}
           className="w-full lg:w-3/5 space-y-2 lg:space-y-4"

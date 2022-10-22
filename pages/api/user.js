@@ -10,13 +10,12 @@ export default async function handler(req, res) {
   const response = await db
     .collection("username")
     .insertOne(payload)
-    .then((res) => {
-      res.statusCode = 200;
-      return res;
+    .then((result) => {
+      // res.statusCode = 200;
+      return res.status(200).send(result);
     })
     .catch((err) => {
-      res.statusCode = 400;
-      return res;
+      return res.status(400).send(err);
     });
   return response;
 }
